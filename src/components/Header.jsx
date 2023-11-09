@@ -3,7 +3,7 @@ import '../Header.css';
 function Header() {
     return(
         <header className="Header">
-           <h1>This is the header</h1>
+           <h1>Welcome to Popcorn Time!</h1>
         </header>
     );
 }
