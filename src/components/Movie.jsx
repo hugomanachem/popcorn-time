@@ -13,17 +13,17 @@ function Movie(props) {
       </div>
 
       <div>
-        <div>
+        {/* <div>
           {props.movieDetails.genres.map((elm) => {
             return <span> {elm} </span>;
           })}
-        </div>
+        </div> */}
         <p>Rating : {props.movieDetails.rating}</p>
         {props.movieDetails.rating > 8 && <p id="recommendedMovie">RECOMMENDED</p>}
         <div>
         <button
           onClick={function () {
-            props.callbackToDelete(props.movieDetails.id);
+            props.callbackToDelete(props.movieDetails.title);
           }}
         >
           &#10060;
