@@ -1,6 +1,8 @@
 function Footer() {
     return(
-        <h1>This is the Footer</h1>
+        <footer>
+            <h1>This is the Footer</h1>
+        </footer>
     );
 }
 
