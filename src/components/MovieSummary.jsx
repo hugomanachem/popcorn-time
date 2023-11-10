@@ -23,7 +23,7 @@ function MovieSummary(props) {
         <div>
         <button
           onClick={function () {
-            props.callbackToDelete(props.movieDetails.title);
+            props.callbackToDelete(props.movieDetails.id);
           }}
         >
           &#10060;

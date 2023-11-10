@@ -36,9 +36,24 @@ function App() {
     );
   };
 
-  const deleteMovie = (movieTitle) => {
+const addNewMovie = (newMovie) => {
+  const movieIds = moviesToDisplay.map((elm) => elm.id)
+
+  const maxId = Math.max(...movieIds);
+  const nextId = maxId + 1;
+
+  const movieDetails = {
+    ...newMovie,
+    id : nextId
+  }
+
+  const newList = [movieDetails,...moviesToDisplay];
+  setMoviesToDisplay(newList);
+}
+
+  const deleteMovie = (movieId) => {
     const newList = moviesToDisplay.filter((elm) => {
-      if (elm.title === movieTitle) {
+      if (elm.id === movieId) {
         return false;
       } else {
         return true;
@@ -50,7 +65,7 @@ function App() {
   return (
     <>
       <Header />
-      <AddMovieForm moviesToDisplay={moviesToDisplay} callBackToSetMoviesToDisplay = {setMoviesToDisplay}/>
+      <AddMovieForm callbackToAddMovie={addNewMovie} moviesToDisplay={moviesToDisplay} callBackToSetMoviesToDisplay = {setMoviesToDisplay}/>
       
       {sortRatingButton}
       <MovieList moviesArray={moviesToDisplay} callbackToDelete={deleteMovie} />

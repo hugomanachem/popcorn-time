@@ -14,8 +14,7 @@ function AddMovieForm(props) {
       imgURL: imgURL,
     };
 
-    const newList = [newMovie, ...props.moviesToDisplay];
-    props.callBackToSetMoviesToDisplay(newList);
+    props.callbackToAddMovie(newMovie);
 
     // clear the form
     setTitle("");
