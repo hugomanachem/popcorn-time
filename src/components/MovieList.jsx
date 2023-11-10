@@ -1,8 +1,8 @@
 
-import Movie from './Movie';
+import MovieSummary from './MovieSummary';
 import { useState } from 'react';
 
-function Main(props) {
+function MovieList(props) {
     let message = '';
     
     
@@ -21,7 +21,7 @@ function Main(props) {
         {message}
             {props.moviesArray.map(function(elm,i){
                 return (
-                    <Movie key={i} movieDetails={elm} callbackToDelete={props.callbackToDelete}/>
+                    <MovieSummary key={i} movieDetails={elm} callbackToDelete={props.callbackToDelete}/>
                 )
             })}
         </>
@@ -29,4 +29,4 @@ function Main(props) {
     );
 }
 
-export default Main;
+export default MovieList;

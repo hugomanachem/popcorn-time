@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Header from "./components/Header";
-import Main from "./components/Main";
+import MovieList from "./components/MovieList";
 import Footer from "./components/Footer";
 import movies from "./data/movies.json";
 import "./App.css";
@@ -119,7 +119,7 @@ function App() {
         </form>
       </section>
       {sortRatingButton}
-      <Main moviesArray={moviesToDisplay} callbackToDelete={deleteMovie} />
+      <MovieList moviesArray={moviesToDisplay} callbackToDelete={deleteMovie} />
 
       <Footer />
     </>

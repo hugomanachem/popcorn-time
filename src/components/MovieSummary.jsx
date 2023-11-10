@@ -1,6 +1,6 @@
 import "../Movie.css";
 
-function Movie(props) {
+function MovieSummary(props) {
   return (
     <section className="Movie">
       <div>
@@ -34,4 +34,4 @@ function Movie(props) {
   );
 }
 
-export default Movie;
+export default MovieSummary;
