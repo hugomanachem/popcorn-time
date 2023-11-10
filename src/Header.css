@@ -3,3 +3,11 @@
     padding: 1rem;
     margin: 1rem;
 }
+
+.Header a {
+    color : blue;
+}
+
+.Header a.active {
+    color : gold;
+}

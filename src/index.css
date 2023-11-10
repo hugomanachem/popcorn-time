@@ -67,3 +67,11 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.badge {
+  background-color: #ddd;
+  color: #333;
+  margin: 0.5em;
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
+}

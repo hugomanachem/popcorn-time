@@ -1,4 +1,5 @@
 import "../Movie.css";
+import { Link } from "react-router-dom";
 
 function MovieSummary(props) {
   return (
@@ -28,7 +29,9 @@ function MovieSummary(props) {
         >
           &#10060;
         </button>
+
         </div>
+        <Link to={`/movies/${props.movieDetails.id}`}>More Details</Link>
       </div>
     </section>
   );

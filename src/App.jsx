@@ -1,14 +1,18 @@
 import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import MovieList from "./components/MovieList";
 import AddMovieForm from "./components/AddMovieForm";
+import About from "./components/About";
 import Footer from "./components/Footer";
+import MovieDetails from "./components/MovieDetails";
 import movies from "./data/movies.json";
 import "./App.css";
 
+
+
 function App() {
   const [moviesToDisplay, setMoviesToDisplay] = useState(movies);
-
 
   const orderMoviesByRatingDesc = () => {
     let sortedArray = structuredClone(moviesToDisplay);
@@ -36,20 +40,20 @@ function App() {
     );
   };
 
-const addNewMovie = (newMovie) => {
-  const movieIds = moviesToDisplay.map((elm) => elm.id)
+  const addNewMovie = (newMovie) => {
+    const movieIds = moviesToDisplay.map((elm) => elm.id);
 
-  const maxId = Math.max(...movieIds);
-  const nextId = maxId + 1;
+    const maxId = Math.max(...movieIds);
+    const nextId = maxId + 1;
 
-  const movieDetails = {
-    ...newMovie,
-    id : nextId
-  }
+    const movieDetails = {
+      ...newMovie,
+      id: nextId,
+    };
 
-  const newList = [movieDetails,...moviesToDisplay];
-  setMoviesToDisplay(newList);
-}
+    const newList = [movieDetails, ...moviesToDisplay];
+    setMoviesToDisplay(newList);
+  };
 
   const deleteMovie = (movieId) => {
     const newList = moviesToDisplay.filter((elm) => {
@@ -64,11 +68,36 @@ const addNewMovie = (newMovie) => {
 
   return (
     <>
-      <Header />
-      <AddMovieForm callbackToAddMovie={addNewMovie} moviesToDisplay={moviesToDisplay} callBackToSetMoviesToDisplay = {setMoviesToDisplay}/>
-      
+      {/* <Header />
+      <AddMovieForm
+        callbackToAddMovie={addNewMovie}
+        moviesToDisplay={moviesToDisplay}
+        callBackToSetMoviesToDisplay={setMoviesToDisplay}
+      />
       {sortRatingButton}
       <MovieList moviesArray={moviesToDisplay} callbackToDelete={deleteMovie} />
+      <Footer /> */}
+      <p>Anything oustide "Routes is displayed in every page...</p>
+      <Header />
+      <AddMovieForm
+        callbackToAddMovie={addNewMovie}
+        moviesToDisplay={moviesToDisplay}
+        callBackToSetMoviesToDisplay={setMoviesToDisplay}
+      />
+
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <MovieList
+              moviesArray={moviesToDisplay}
+              callbackToDelete={deleteMovie}
+            />
+          }
+        />
+        <Route path="/about" element={<About/>} />
+        <Route path="/movies/:movieId" element={<MovieDetails moviesArray={moviesToDisplay}/>}/>
+      </Routes>
 
       <Footer />
     </>

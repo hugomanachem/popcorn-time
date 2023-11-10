@@ -1,7 +1,7 @@
 function Footer() {
     return(
         <footer>
-            <h1>This is the Footer</h1>
+            <p>© 2023</p>
         </footer>
     );
 }
